@@ -66,9 +66,6 @@ nav ul {
 }
 
 nav li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     font-weight: bold;
     color: #8B4513;
     transition: all 0.3s ease;
@@ -77,8 +74,8 @@ nav li {
     background: rgba(139, 69, 19, 0.1);
 }
 
-/* Active page styling (Home) */
-nav li:first-child {
+/* Active page styling (Branches) */
+nav li:not(:has(a)) {
     background: rgba(139, 69, 19, 0.25);
     color: #5D2F0A;
     font-weight: bolder;
@@ -100,11 +97,6 @@ nav a:hover {
     color: #D2691E;
 }
 
-nav img {
-    width: 16px !important;
-    height: 16px;
-}
-
 /* HR Styling */
 hr {
     border: none;
@@ -115,80 +107,112 @@ hr {
 
 /* Main Content */
 main {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Food Images Section */
-main section:first-child {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+/* Main intro paragraph */
+main section > p {
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    color: #8B4513;
     margin-bottom: 40px;
-    flex-wrap: wrap;
+    padding: 15px;
+    background: rgba(139, 69, 19, 0.1);
+    border-radius: 10px;
+    border-left: 5px solid #D2691E;
 }
 
-main section:first-child img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-main section:first-child img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* Offers and Facilities Section */
-main section:nth-child(2) {
+/* Branches container */
+main section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-bottom: 30px;
+    align-items: start;
 }
 
-main section:nth-child(2) div {
-    background: rgba(139, 69, 19, 0.05);
-    padding: 25px;
+main section > p {
+    grid-column: 1 / -1;
+}
+
+/* Branch divisions */
+main section div {
+    background: rgba(139, 69, 19, 0.08);
+    padding: 30px;
     border-radius: 15px;
     border-left: 5px solid #8B4513;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-main section:nth-child(2) h2 {
+main section div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    background: rgba(139, 69, 19, 0.12);
+}
+
+main section div h2 {
     color: #8B4513;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size: 24px;
     text-align: center;
     border-bottom: 2px solid #D2691E;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+    position: relative;
 }
 
-main section:nth-child(2) ul,
-main section:nth-child(2) ol {
-    padding-left: 20px;
+/* Add decorative element to headings */
+/* main section div h2::after {
+    content: '🌍';
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    font-size: 20px;
+} */
+
+/* main section div:first-of-type h2::after {
+    content: '🇮🇳';
+} */
+
+/* List Styling */
+main section div ul {
+    list-style: none;
+    padding-left: 0;
 }
 
-main section:nth-child(2) li {
-    margin-bottom: 10px;
+main section div li {
+    margin-bottom: 12px;
     font-size: 16px;
     line-height: 1.5;
+    color: #5D2F0A;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border-left: 3px solid #D2691E;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 35px;
 }
 
-main section:nth-child(2) ul li {
-    list-style-type: square;
-    color: #8B4513;
+/* Add location icons */
+main section div li::before {
+    content: '📍';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-main section:nth-child(2) ol li {
-    color: #8B4513;
+main section div li:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
@@ -210,26 +234,21 @@ footer {
     
     nav li {
         justify-content: center;
+        text-align: center;
     }
     
-    main section:first-child {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    main section:first-child img {
-        width: 90%;
-        max-width: 400px;
-    }
-    
-    main section:nth-child(2) {
+    main section {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 25px;
     }
     
     main {
         margin: 10px;
-        padding: 15px;
+        padding: 20px;
+    }
+    
+    main section div {
+        padding: 20px;
     }
 }
 
@@ -251,12 +270,23 @@ footer {
         font-size: 14px;
     }
     
-    main section:nth-child(2) h2 {
+    main section > p {
+        font-size: 18px;
+        padding: 12px;
+    }
+    
+    main section div h2 {
         font-size: 20px;
     }
     
-    main section:nth-child(2) div {
-        padding: 20px;
+    main section div {
+        padding: 15px;
+    }
+    
+    main section div li {
+        font-size: 14px;
+        padding: 6px 12px;
+        padding-left: 30px;
     }
 }
 
@@ -281,6 +311,18 @@ main {
     animation: fadeInUp 0.8s ease-out;
 }
 
+main section div {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+main section div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+main section div:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
 /* Enhanced link hover effects */
 a {
     transition: all 0.3s ease;
@@ -291,4 +333,25 @@ a:focus,
 nav li:focus {
     outline: 2px solid #D2691E;
     outline-offset: 2px;
+}
+
+/* Special styling for branch counts */
+main section div ul::after {
+    content: '';
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(139, 69, 19, 0.3);
+    font-size: 14px;
+    color: #8B4513;
+    font-style: italic;
+}
+
+main section div:first-of-type ul::after {
+    content: '8 locations across India';
+}
+
+main section div:last-of-type ul::after {
+    content: '5 international locations';
 }
