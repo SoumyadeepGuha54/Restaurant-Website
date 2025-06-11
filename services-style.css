@@ -407,11 +407,11 @@ a {
 }
 
 /* Focus states for accessibility */
-a:focus,
+/* a:focus,
 nav li:focus {
     outline: 2px solid #D2691E;
     outline-offset: 2px;
-}
+} */
 
 /* Pulsing animation for coming soon */
 main:empty::before {
