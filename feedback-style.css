@@ -1,0 +1,495 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.6;
+  color: #333;
+  background-image: url("depositphotos_65517353-stock-photo-empty-brown-wooden-table-and.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+}
+
+/* Add overlay to improve text readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+/* Header Styles */
+header {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header section:first-child {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header img {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-style: italic;
+  font-size: 18px;
+  color: #8b4513;
+  margin-bottom: 10px;
+}
+
+/* Navigation Styles */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+nav li {
+  font-weight: bold;
+  color: #8b4513;
+  transition: all 0.3s ease;
+  padding: 10px 15px;
+  border-radius: 25px;
+  background: rgba(139, 69, 19, 0.1);
+}
+
+/* Active page styling (Feedback) */
+nav li:nth-child(5) {
+  background: rgba(139, 69, 19, 0.25);
+  color: #5d2f0a;
+  font-weight: bolder;
+  border: 2px solid #8b4513;
+}
+
+nav li:hover {
+  background: rgba(139, 69, 19, 0.2);
+  transform: translateY(-2px);
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #d2691e;
+}
+
+/* HR Styling */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #8b4513, transparent);
+  margin: 20px 0;
+}
+
+/* Main Content */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Section Styling */
+/* main section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+} */
+
+/* Form Header */
+main section div:first-child {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(139, 69, 19, 0.1);
+  border-radius: 10px;
+  border-left: 5px solid #d2691e;
+}
+
+main section div:first-child h2 {
+  color: #8b4513;
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+main section div:first-child h2::before {
+  content: "✨ ";
+  margin-right: 10px;
+}
+
+main section div:first-child p {
+  color: #5d2f0a;
+  font-style: italic;
+  font-size: 16px;
+}
+
+/* Form Fields Container */
+main section div:nth-child(2) {
+  margin-bottom: 25px;
+}
+
+/* Label Styles */
+label {
+  display: block;
+  margin-bottom: 20px;
+  color: #8b4513;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Input Field Styles */
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid rgba(139, 69, 19, 0.3);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  transition: all 0.3s ease;
+  margin-top: 5px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #d2691e;
+  box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.2);
+  background: rgba(255, 255, 255, 1);
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="number"]:hover {
+  border-color: #8b4513;
+}
+
+/* Placeholder Styles */
+input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Add icons to form labels */
+label[for="name"]::before {
+  content: "👤 ";
+  margin-right: 5px;
+}
+
+label[for="contact"]::before {
+  content: "📞 ";
+  margin-right: 5px;
+}
+
+label[for="rating"]::before {
+  content: "⭐ ";
+  margin-right: 5px;
+}
+
+label[for="email"]::before {
+  content: "✉️ ";
+  margin-right: 5px;
+}
+
+label[for="feedback"]::before {
+  content: "💭 ";
+  margin-right: 5px;
+}
+
+/* Special styling for rating input */
+input[type="number"] {
+  max-width: 150px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+/* Feedback text area styling (for the last input) */
+main section div:nth-child(3) {
+  margin-top: 25px;
+}
+
+main section div:nth-child(3) input[type="text"] {
+  min-height: 120px;
+  resize: vertical;
+  padding-top: 15px;
+  vertical-align: top;
+}
+
+/* Form validation styling */
+input:required:invalid {
+  border-color: #dc3545;
+}
+
+input:required:valid {
+  border-color: #28a745;
+}
+
+/* Submit button styling (even though it's missing in HTML) */
+.submit-btn {
+  background: linear-gradient(135deg, #8b4513, #a0522d);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #a0522d, #8b4513);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Footer */
+footer {
+  background: rgba(139, 69, 19, 0.9);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav li {
+    justify-content: center;
+    text-align: center;
+  }
+
+  main {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  main section {
+    padding: 20px;
+  }
+
+  main section div:first-child h2 {
+    font-size: 20px;
+  }
+
+  main section div:first-child p {
+    font-size: 14px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"] {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 15px 10px;
+  }
+
+  header img {
+    max-width: 150px;
+  }
+
+  header p {
+    font-size: 16px;
+  }
+
+  nav li {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  main section {
+    padding: 15px;
+  }
+
+  main section div:first-child {
+    padding: 15px;
+  }
+
+  main section div:first-child h2 {
+    font-size: 18px;
+  }
+
+  main section div:first-child p {
+    font-size: 13px;
+  }
+
+  label {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"] {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add subtle animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+main section {
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+label {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+label:nth-child(1) {
+  animation-delay: 0.5s;
+}
+label:nth-child(2) {
+  animation-delay: 0.6s;
+}
+label:nth-child(3) {
+  animation-delay: 0.7s;
+}
+label:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+/* Enhanced link hover effects */
+a {
+  transition: all 0.3s ease;
+}
+
+/* Focus states for accessibility */
+a:focus,
+nav li:focus,
+input:focus {
+  outline: 2px solid #d2691e;
+  outline-offset: 2px;
+}
+
+/* Form accessibility */
+form:focus-within {
+  outline: 2px solid #d2691e;
+  outline-offset: 4px;
+}
+
+/* Error styling for form validation */
+.error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.success {
+  color: #28a745;
+  font-size: 14px;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* Loading state */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(139, 69, 19, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 69, 19, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 69, 19, 0.7);
+}
