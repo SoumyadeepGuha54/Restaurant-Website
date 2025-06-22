@@ -442,12 +442,12 @@ a {
 }
 
 /* Focus states for accessibility */
-a:focus,
+/* a:focus,
 nav li:focus,
 input:focus {
   outline: 2px solid #d2691e;
   outline-offset: 2px;
-}
+} */
 
 /* Form accessibility */
 form:focus-within {
